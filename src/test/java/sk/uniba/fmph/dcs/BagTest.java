@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class BagTest {
-    private Bag bag;
+    private BagInterface bag;
     private final int totalTilesCount = 100; // Adjust based on the actual setup for the game Azul
 
     @BeforeEach

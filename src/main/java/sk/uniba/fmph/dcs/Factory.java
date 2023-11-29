@@ -6,6 +6,7 @@ public class Factory extends TyleSource{
     private boolean wasAlreadyTaken = false;
     private BagInterface bag;
     private TyleSource tableCenter;
+
     //  Create a factory with a given capacity.
     public Factory(int capacity, BagInterface bag) {
         if (capacity <= 0) {
@@ -15,6 +16,7 @@ public class Factory extends TyleSource{
         this.tiles = new ArrayList<>(capacity);
         this.bag = bag;
     }
+
     //  Draw a number idx tiles from the factory.
     @Override
     public Tile[] take(int idx) {
@@ -48,6 +50,7 @@ public class Factory extends TyleSource{
         }
     }
 
+    //  Add the remaining tiles to the table center.
     public void addTilesToCenter() {
         if (wasAlreadyTaken) {
             for (Tile tile : tiles) {
@@ -57,12 +60,13 @@ public class Factory extends TyleSource{
         }
     }
 
-
+    //  Return true if the factory is empty.
     @Override
     public boolean isEmpty() {
         return tiles.isEmpty();
     }
 
+    //  Return the number of tiles in the factory.
     @Override
     public void startNewRound() {
         tiles.clear();
@@ -71,6 +75,7 @@ public class Factory extends TyleSource{
         this.fillFactory();
     }
 
+    //  Return the number of tiles in the factory.
     @Override
     public String state() {
         StringBuilder stateBuilder = new StringBuilder("Factory state: ");
@@ -87,6 +92,7 @@ public class Factory extends TyleSource{
         }
     }
 
+    //  Return the number of tiles in the factory.
     public List<Tile> getRemainingTiles() {
         if (wasAlreadyTaken) {
             return new ArrayList<>(tiles);
@@ -95,6 +101,7 @@ public class Factory extends TyleSource{
         }
     }
 
+    //  Return the number of tiles in the factory.
     public List<Tile> getAvailableTiles() {
         if (wasAlreadyTaken) {
             return new ArrayList<>(); // Return an empty list if the factory was already taken from this round
@@ -103,14 +110,17 @@ public class Factory extends TyleSource{
         }
     }
 
+    //  Return the number of tiles that was taken in the factory.
     public boolean wasAlreadyTaken() {
         return wasAlreadyTaken;
     }
 
+    //  Return the number of tiles in the factory.
     public void setTableCenter(TyleSource table){
         this.tableCenter = table;
     }
 
+    //  Return the number of tiles in the factory.
     @Override
     public void add(Tile[] newTiles){
 

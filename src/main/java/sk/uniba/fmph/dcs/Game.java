@@ -10,6 +10,8 @@ public class Game implements GameInterface{
     private TableAreaInterface table;
     private Bag bag;
     private GameObserverInterface gameObserver;
+
+    //  Create a game with a given number of players.
     public Game(ArrayList<BoardInterface> boards, TableAreaInterface table, Bag bag, GameObserverInterface gameObserver) {
         this.currentPlayerId = 0;
         this.startingPlayerId = 0;
@@ -20,6 +22,7 @@ public class Game implements GameInterface{
         this.gameObserver = gameObserver;
     }
 
+    //  Move a number of tiles from the factory, tableCenter to a player's board.
     @Override
     public boolean take(int playerId, int sourceId, int idx, int destinationIdx) {
         if (isGameOver) return false;
@@ -51,9 +54,11 @@ public class Game implements GameInterface{
         return true;
     }
 
+
     public void notifyAllObservers() {
         gameObserver.notifyEverybody(getState());
     }
+
 
     public void registerObserver(GameObserverInterface observer) {
         this.gameObserver = observer;

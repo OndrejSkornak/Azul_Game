@@ -9,6 +9,8 @@ public class GameInitialization {
     private static int colorCount = Tile.values().length - 1; // The number of colors in the game, excluding the STARTING_PLAYER tile
     private static int tileCount = 20; // The number of tiles of each color in the game
     private static UsedTiles usedTiles = new UsedTiles();
+
+    // Create a board.
     public static BoardInterface createWholeBoard() {
         BoardInterface board;
         ArrayList<Points> pointsPattern = new ArrayList<>();
@@ -44,7 +46,7 @@ public class GameInitialization {
         return board;
     }
 
-
+    // Create a game with a given number of players.
     public static TableAreaInterface createTableArea(int numberOfPlayers, boolean FixSetUp){
         int factoryCount = numberOfPlayers*2 + 1;
 
@@ -79,6 +81,7 @@ public class GameInitialization {
         return new TableArea(tileSources);
     }
 
+    // Create a game with a given number of players and FullBag.
     public static ArrayList<Object> createTableAreaFullBag(int numberOfPlayers, boolean FixSetUp){
         int factoryCount = numberOfPlayers*2 + 1;
         Bag bagFullBag = new Bag();
