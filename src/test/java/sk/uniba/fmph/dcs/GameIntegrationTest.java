@@ -191,6 +191,41 @@ public class GameIntegrationTest {
         assertTrue(game.take(0, 0, 4, 4));
         assertTrue(game.take(1, 0, 5, 4));
 
+        System.out.println(game.getState());
+        assertEquals("Table area:\n" +
+                "TableCenter state: \n" +
+                "Factory state:\n" +
+                "Factory state:\n" +
+                "Factory state:\n" +
+                "Factory state:\n" +
+                "Factory state:\n" +
+                "\n" +
+                "Players:\n" +
+                "Points [value=-24]\n" +
+                "P1: Capacity: 1 | Current state: 0 | Color: EMPTY\n" +
+                "W1: RGIBL\n" +
+                "P2: Capacity: 1 | Current state: 1 | Color: L\n" +
+                "W2: -I--R\n" +
+                "P3: Capacity: 2 | Current state: 1 | Color: B\n" +
+                "W3: -----\n" +
+                "P4: Capacity: 4 | Current state: 0 | Color: EMPTY\n" +
+                "W4: -----\n" +
+                "P5: Capacity: 5 | Current state: 0 | Color: EMPTY\n" +
+                "W5: --G-B\n" +
+                "Floor -> \n" +
+                "Points [value=-39]\n" +
+                "P1: Capacity: 0 | Current state: 1 | Color: G\n" +
+                "W1: R-IBL\n" +
+                "P2: Capacity: 1 | Current state: 1 | Color: R\n" +
+                "W2: ---L-\n" +
+                "P3: Capacity: 3 | Current state: 0 | Color: EMPTY\n" +
+                "W3: -B---\n" +
+                "P4: Capacity: 1 | Current state: 3 | Color: R\n" +
+                "W4: -----\n" +
+                "P5: Capacity: 5 | Current state: 0 | Color: EMPTY\n" +
+                "W5: L----\n" +
+                "Floor -> LLGGGIIIIL\n", game.getState());
+
         //Check if end of game
         assertEquals(FinishRoundResult.GAME_FINISHED, boards.get(0).finishRound());
         assertEquals(FinishRoundResult.GAME_FINISHED, boards.get(1).finishRound());
